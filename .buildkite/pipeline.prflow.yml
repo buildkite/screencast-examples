@@ -1,0 +1,10 @@
+steps:
+  - name: ":ruby: App tests"
+    command: "tests.sh"
+  - wait
+  - name: ":hammer: Build package"
+    command: "build.sh"
+  - wait
+  - name: ":shipit: Deploy"
+    branches: "master"
+
