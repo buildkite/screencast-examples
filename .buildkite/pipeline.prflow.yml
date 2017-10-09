@@ -6,5 +6,6 @@ steps:
     command: "build.sh"
   - wait
   - name: ":shipit: Deploy"
+    command: "deploy.sh"
     branches: "master"
 
