@@ -1,11 +1,12 @@
 steps:
   - name: ":ruby: App tests"
-    command: "tests.sh"
-  - wait
+    command: "pr-flow-example/tests.sh"
+  - wait: ~
+    continue_on_failure: true
   - name: ":hammer: Build package"
-    command: "build.sh"
+    command: "pr-flow-example/build.sh"
   - wait
   - name: ":shipit: Deploy"
-    command: "deploy.sh"
+    command: "pr-flow-example/deploy.sh"
     branches: "master"
 
