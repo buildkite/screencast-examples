@@ -1,14 +1,14 @@
 steps:
-  - name: ":ruby: App tests"
+  - label: ":ruby: App tests"
     command: "pr-flow-example/tests.sh"
   - wait: ~
     continue_on_failure: true
-  - name: ":hammer: Build package"
+  - label: ":hammer: Build package"
     command: "pr-flow-example/build.sh"
-  - name: ":mail: Send emails to team"
+  - label: ":mail: Send emails to team"
     command: "pr-flow-example/emails.sh"
   - wait
-  - name: ":shipit: Deploy"
+  - label: ":shipit: Deploy"
     command: "pr-flow-example/deploy.sh"
     branches: "master"
 
