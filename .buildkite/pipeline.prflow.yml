@@ -1,10 +1,13 @@
 steps:
   - name: ":ruby: App tests"
     command: "pr-flow-example/tests.sh"
+    artifact_paths: 
+      - "logs/**/*"
   - wait: ~
     continue_on_failure: true
   - name: ":hammer: Build package"
     command: "pr-flow-example/build.sh"
+    timeout_in_minutes: 60
   - name: ":mail: Send emails to team"
     command: "pr-flow-example/emails.sh"
   - wait
