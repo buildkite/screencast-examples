@@ -11,7 +11,7 @@ steps:
     timeout_in_minutes: 60
     command: "pr-flow-example/emails.sh"
   - wait
-  - label: ":shipit: Deploy"
+  - label: ":shipit: Deploy :sparkles:"
     command: "pr-flow-example/deploy.sh"
     branches: "master"
 
