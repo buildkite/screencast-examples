@@ -9,19 +9,3 @@
   - label: "Script that uploads logs as an artifact"
     command: "upload.sh"
   - block: "Please click me to continue"
-  - label: "Uploads to S3"
-    command: "s3upload.sh"
-  - block: "Deployment target"
-    fields: 
-      - select: "Target"
-        key: "deploy-target"
-        options:
-          - label: "Target 1"
-            value: "t1"
-          - label: "Target 2"
-            value: "t2"
-  - trigger: "deploy"
-    branches: "master"
-    build:
-      meta_data:
-        release-version: "1.1"
