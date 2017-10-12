@@ -3,14 +3,14 @@ steps:
     command: "npm install && npm test"
   - wait
   - label: "Script that fails"
-    command: "failure.sh"
+    command: "step-types-example/failure.sh"
   - wait: ~
     continue_on_failure: true
   - label: "Script that uploads logs as an artifact"
-    command: "upload.sh"
+    command: "step-types-example/upload.sh"
   - block: "Please click me to continue"
   - label: "Uploads to S3"
-    command: "s3upload.sh"
+    command: "step-types-example/s3upload.sh"
   - block: "Deployment target"
     fields: 
       - select: "Target"
