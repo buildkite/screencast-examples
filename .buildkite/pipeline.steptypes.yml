@@ -1,6 +1,5 @@
 - steps:
   - label: ":npm:"
     command: "npm install && npm test"
-  - wait
   - label: "Script that fails"
     command: "failure.sh"
