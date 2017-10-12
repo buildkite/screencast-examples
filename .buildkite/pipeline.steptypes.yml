@@ -4,8 +4,3 @@
   - wait
   - label: "Script that fails"
     command: "failure.sh"
-  - wait: ~
-    continue_on_failure: true
-  - label: "Script that uploads logs as an artifact"
-    command: "upload.sh"
-  - block: "Please click me to continue"
