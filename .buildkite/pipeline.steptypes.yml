@@ -2,7 +2,7 @@ steps:
   - label: ":npm:"
     command: "npm install && npm test"
   - wait
-  - label: "Script that fails"
+  - label: "Script that might fail"
     command: "step-types-example/failure.sh"
   - wait: ~
     continue_on_failure: true
@@ -11,15 +11,9 @@ steps:
   - block: "Please click me to continue"
   - label: "Uploads to S3"
     command: "step-types-example/s3upload.sh"
-  - block: "Deployment target"
-    fields: 
-      - select: "Target"
-        key: "deploy-target"
-        options:
-          - label: "Target 1"
-            value: "t1"
-          - label: "Target 2"
-            value: "t2"
+  - wait
+  - command: ".buildkite/pipeline.deployment.yml.sh | buildkite-agent pipeline upload"
+  - wait
   - trigger: "deploy"
     branches: "master"
     build:
