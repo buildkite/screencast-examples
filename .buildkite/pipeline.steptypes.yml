@@ -12,7 +12,9 @@ steps:
   - label: "Uploads to S3"
     command: "step-types-example/s3upload.sh"
   - wait
-  - command: ".buildkite/pipeline.deployment.yml.sh | buildkite-agent pipeline upload"
+  - label: ":pipeline: :rocket:"
+    command: ".buildkite/pipeline.deployment.yml.sh | buildkite-agent pipeline upload"
+    branches: "master"
   - wait
   - trigger: "deploy"
     branches: "master"
