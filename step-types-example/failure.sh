@@ -1,1 +1,0 @@
-echo "Failed script"
