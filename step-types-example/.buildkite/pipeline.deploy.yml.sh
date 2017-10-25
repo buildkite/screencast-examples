@@ -9,10 +9,10 @@ echo 'steps:
   - label: ":k8s: Deploy"
     command: "echo update resource"
   - wait
-  - label: ":pagerduty: Override"
+  - label: ":pagerduty: On-call Override"
     command: "echo hello world"'
 
-if [[ "${IS_ROLLBACK}" == "true" ]]; then
+if [[ "${IS_ROLLBACK}" != "true" ]]; then
   echo '
   - wait
   - block: "Rollback"
