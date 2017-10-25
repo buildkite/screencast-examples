@@ -20,9 +20,9 @@ if [[ "${IS_ROLLBACK}" != "true" ]]; then
     fields:
       - text: "Reason"
         key: "reason"
-        hint: "What’s the reason for rolling this build back?"
+        hint: "What is the reason for rolling this build back?"
   - trigger: "${BUILDKITE_PIPELINE_SLUG}"
-    label: "Rollback ${PREVIOUSLY_DEPLOYED_COMMIT}"
+    label: "Rollback to ${PREVIOUSLY_DEPLOYED_COMMIT}"
     build:
       message: "Rollback"
       commit: "${PREVIOUSLY_DEPLOYED_COMMIT}"
