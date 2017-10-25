@@ -1,0 +1,34 @@
+steps:
+  - label: ":docker::package:"
+    plugins:
+      docker-compose#1.6.0:
+        build: app
+        image-repository: "index.docker.io/buildkitedemo/step-types-demo"
+  - wait
+  - label: ":rubocop:"
+    command: "echo hello world"
+    plugins:
+      docker-compose#1.6.0:
+        run: app
+  - label: ":percy:"
+    command: "echo hello world"
+    plugins:
+      docker-compose#1.6.0:
+        run: app
+  - label: ":knapsack:"
+    command: "echo hello world"
+    parallelism: 30
+    plugins:
+      docker-compose#1.6.0:
+        run: app
+  - wait: ~
+    continue_on_failure: true
+  - label: ":junit:"
+    command: "echo coverage"
+  - wait
+  - trigger: "naming-things-is-hard-deploys"
+    label: ":shipit:"
+    branches: "master"
+    build:
+      commit: "$BUILDKITE_COMMIT"
+      branch: "master"

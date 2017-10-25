@@ -1,0 +1,8 @@
+{
+  "name": "screencast-example",
+  "version": "0.0.0",
+  "dependencies": {},
+  "scripts": {
+    "test": "exit 0"
+  }
+}
