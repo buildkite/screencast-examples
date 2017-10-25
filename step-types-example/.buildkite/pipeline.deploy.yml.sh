@@ -10,12 +10,15 @@ echo 'steps:
     command: "echo update resource"
   - wait
   - label: ":pagerduty: On-call Override"
+    command: "echo hello world"
+  - wait
+  - label: ":partyparrot:"
     command: "echo hello world"'
 
 if [[ "${IS_ROLLBACK}" != "true" ]]; then
   echo '
   - wait
-  - block: "Rollback"
+  - block: "Rollback deploy"
     prompt: "Create a rollback deployment for build ${BUILDKITE_BUILD} (to commit ${PREVIOUSLY_DEPLOYED_COMMIT})"
     fields:
       - text: "Reason"
