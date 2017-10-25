@@ -3,7 +3,7 @@
 set -euo pipefail
 
 IS_ROLLBACK="${IS_ROLLBACK:-false}"
-PREVIOUS_COMMIT="${PREVIOUS_COMMIT:-}"
+PREVIOUSLY_DEPLOYED_COMMIT="${PREVIOUSLY_DEPLOYED_COMMIT:-}"
 
 echo 'steps:
   - label: ":k8s: Deploy"
@@ -16,15 +16,16 @@ if [[ "${IS_ROLLBACK}" != "true" ]]; then
   echo '
   - wait
   - block: "Rollback"
-    prompt: "Create a rollback deployment for build ${BUILDKITE_BUILD} (to commit ${PREVIOUS_COMMIT})"
+    prompt: "Create a rollback deployment for build ${BUILDKITE_BUILD} (to commit ${PREVIOUSLY_DEPLOYED_COMMIT})"
     fields:
       - text: "Reason"
         key: "reason"
         hint: "What’s the reason for rolling this build back?"
   - trigger: "${BUILDKITE_PIPELINE_SLUG}"
+    label: "Rollback ${PREVIOUSLY_DEPLOYED_COMMIT}"
     build:
       message: "Rollback"
-      commit: "${PREVIOUS_COMMIT}"
+      commit: "${PREVIOUSLY_DEPLOYED_COMMIT}"
       branch: master
       env:
         IS_ROLLBACK: "true"'
