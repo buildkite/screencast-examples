@@ -16,9 +16,10 @@ if [[ "${IS_ROLLBACK}" != "true" ]]; then
   echo '
   - wait
   - block: "Rollback"
-    hint: "Create a rollback deployment for build ${BUILDKITE_BUILD} (to commit ${PREVIOUS_COMMIT})"
+    prompt: "Create a rollback deployment for build ${BUILDKITE_BUILD} (to commit ${PREVIOUS_COMMIT})"
     fields:
       - text: "Reason"
+        key: "reason"
         hint: "What’s the reason for rolling this build back?"
   - trigger: "${BUILDKITE_PIPELINE_SLUG}"
     build:
