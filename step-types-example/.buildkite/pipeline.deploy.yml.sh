@@ -27,4 +27,4 @@ if [[ "${IS_ROLLBACK}" != "true" ]]; then
       branch: master
       env:
         IS_ROLLBACK: "true"'
-done
+fi
