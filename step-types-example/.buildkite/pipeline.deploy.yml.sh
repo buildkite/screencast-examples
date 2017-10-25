@@ -19,7 +19,7 @@ if [[ "${IS_ROLLBACK}" != "true" ]]; then
     hint: "Create a rollback deployment for build ${BUILDKITE_BUILD} (to commit ${PREVIOUS_COMMIT})"
     fields:
       - text: "Reason"
-        hint: "What's the reason for rolling this build back?"
+        hint: "What’s the reason for rolling this build back?"
   - trigger: "${BUILDKITE_PIPELINE_SLUG}"
     build:
       message: "Rollback"
