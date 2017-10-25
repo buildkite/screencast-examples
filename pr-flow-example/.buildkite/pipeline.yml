@@ -7,7 +7,7 @@ steps:
     continue_on_failure: true
   - label: ":hammer: Build package"
     command: "pr-flow-example/build.sh"
-  - label: ":mail: Send emails to team"
+  - label: ":email: Send emails to team"
     timeout_in_minutes: 60
     command: "pr-flow-example/emails.sh"
   - wait

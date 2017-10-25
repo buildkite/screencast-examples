@@ -1,3 +1,6 @@
+env:
+  BUILDKITE_PLUGIN_DOCKER_COMPOSE_CONFIG: step-types-example/docker-compose.yml
+
 steps:
   - label: ":docker::package:"
     plugins:
