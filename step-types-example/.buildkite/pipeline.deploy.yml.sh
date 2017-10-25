@@ -9,7 +9,7 @@ echo 'steps:
   - label: ":k8s: Deploy"
     command: "echo update resource"
   - wait
-  - label: ":pagerduty: Temporary pager override (${BUILD_CREATOR_FIRST_NAME})"
+  - label: ":pagerduty: Override"
     command: "echo hello world"'
 
 if [[ "${IS_ROLLBACK}" == "true" ]]; then
