@@ -1,4 +1,4 @@
 # Buildkite Pipeline Examples
 
-- Pull Request Workflow
-- Step Types
+- Pull Request Workflow 🌈
+- Step Types 🍩
