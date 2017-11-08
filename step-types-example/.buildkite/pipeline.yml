@@ -24,9 +24,8 @@ steps:
     plugins:
       docker-compose#1.6.0:
         run: app
-  - wait: ~
-    continue_on_failure: true
-  - label: ":junit:"
+  - wait
+  - label: ":codecov:"
     command: "echo coverage"
   - wait
   - trigger: "naming-things-is-hard-deploys"
