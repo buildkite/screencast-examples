@@ -3,7 +3,5 @@
 
 * Pull Request Workflow 🌈
 * Step Types 🍩
-* Ops
-* Docker
 
 ✨✨✨✨
