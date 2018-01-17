@@ -16,3 +16,7 @@ echo "Success"
 echo "Test 6 running..."
 sleep 1s
 echo "Success"
+echo "Test 7 running..."
+sleep 1s
+echo "Test 7 failed - package not found"
+exit 1
