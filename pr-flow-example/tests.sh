@@ -19,3 +19,7 @@ echo "Success"
 echo "Test 7 running..."
 sleep 1s
 echo "Success"
+echo "Test 8 running..."
+sleep 1s
+echo "Test 8 failed - missing package"
+exit 1
