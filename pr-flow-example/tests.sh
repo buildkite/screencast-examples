@@ -15,5 +15,4 @@ sleep 1s
 echo "Success"
 echo "Test 6 running..."
 sleep 1s
-echo "Test 6 failed - missing package"
-exit 1
+echo "Success"
