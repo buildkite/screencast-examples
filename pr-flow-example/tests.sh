@@ -13,12 +13,3 @@ echo "Success"
 echo "Test 5 running..."
 sleep 1s
 echo "Success"
-echo "Test 6 running..."
-sleep 1s
-echo "Success"
-echo "Test 7 running..."
-sleep 1s
-echo "Success"
-echo "Test 8 running..."
-sleep 1s
-echo "Success"
