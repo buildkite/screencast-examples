@@ -1,0 +1,18 @@
+env:
+  BUILDKITE_PLUGIN_DOCKER_COMPOSE_CONFIG: step-types-example/docker-compose.yml
+
+steps:
+  - label: ":docker::package:"
+    plugins:
+      docker-login#v2.0.1:
+        username: xyz
+      docker-compose#v2.5.1:
+        build: app
+        image-repository: "index.docker.io/buildkitedemo/docker-demo"
+  - wait
+  - label: ":docker: test %n"
+    command: test.sh
+    parallelism: 25
+    plugins:
+      docker-compose#v2.5.1:
+        run: app
