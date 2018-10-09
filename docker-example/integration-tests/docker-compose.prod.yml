@@ -1,0 +1,11 @@
+version: '3.6'
+
+services:
+  integration-tests:
+    build: .
+    links:
+      - app
+  app:
+    image: "buildkitedemo/docker-demo-prod:build-$BUILDKITE_BUILD_NUMBER"
+    expose:
+      - "3000"

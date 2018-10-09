@@ -1,0 +1,13 @@
+version: '3.6'
+
+services:
+  integration-tests:
+    build: .
+    links:
+      - app
+  app:
+    build:
+      context: ..
+      target: development
+    expose:
+      - "3000"
