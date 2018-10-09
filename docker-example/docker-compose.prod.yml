@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  app:
+    build:
+      context: .
+      target: production
+    image: "index.docker.io/buildkitedemo/docker-demo-prod:build-$BUILDKITE_BUILD_NUMBER"

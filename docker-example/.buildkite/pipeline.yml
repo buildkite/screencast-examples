@@ -1,0 +1,68 @@
+steps:
+  - label: ":docker: :package:"
+    plugins:
+      - docker-login#v2.0.1:
+          username: buildkitedemo
+      - docker-compose#v2.5.1:
+          build: app
+          image-repository: "index.docker.io/buildkitedemo/docker-demo"
+
+  - wait
+
+  - label: ":node: Units"
+    command: "npm test"
+    plugins:
+      - docker-login#v2.0.1:
+          username: buildkitedemo
+      - docker-compose#v2.5.1:
+          run: app
+
+  - label: ":node: Lint"
+    command: "npm run lint"
+    plugins:
+      - docker-login#v2.0.1:
+          username: buildkitedemo
+      - docker-compose#v2.5.1:
+          run: app
+
+  - wait
+
+  - label: ":chrome: Integration"
+    plugins:
+      - docker-login#v2.0.1:
+          username: buildkitedemo
+      - docker-compose#v2.5.1:
+          config: integration-tests/docker-compose.yml
+          run: integration-tests
+
+  - wait
+
+  - label: ":docker: :package: (Prod)"
+    plugins:
+      - docker-login#v2.0.1:
+          username: buildkitedemo
+      - docker-compose#v2.5.1:
+          config: docker-compose.prod.yml
+          push: app
+
+  - wait
+
+  - label: ":chrome: Integration (Prod)"
+    plugins:
+      - docker-login#v2.0.1:
+          username: buildkitedemo
+      - docker-compose#v2.5.1:
+          config: integration-tests/docker-compose.prod.yml
+          run: integration-tests
+
+  - wait
+
+  - label: ":rocket:"
+    command: "echo Deployed"
+  # - wait
+
+  # - trigger: "docker-example-deploy"
+  #   build:
+  #     message: "Deploy #$BUILDKITE_BUILD_NUMBER"
+  #     env:
+  #       - "DOCKER_TAG_TO_DEPLOY=$BUILDKITE_BUILD_NUMBER"
