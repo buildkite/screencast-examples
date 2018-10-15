@@ -4,5 +4,6 @@
   ],
   "minor": { "automerge": true },
   "patch": { "automerge": true },
-  "requiredStatusChecks": null
+  "requiredStatusChecks": null,
+  "prHourlyLimit": 0
 }
