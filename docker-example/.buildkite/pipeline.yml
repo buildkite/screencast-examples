@@ -1,11 +1,11 @@
 steps:
-  - label: ":docker: :package:"
+  - label: ":docker: :package: (dev)"
     plugins:
       - docker-login#v2.0.1:
           username: buildkitedemo
       - docker-compose#v2.5.1:
           build: app
-          image-repository: "index.docker.io/buildkitedemo/docker-demo"
+          image-repository: "buildkitedemo/docker-demo"
 
   - wait
 
@@ -58,11 +58,14 @@ steps:
   - wait
 
   - label: ":rocket:"
-    command: "echo Deployed"
-  # - wait
-
-  # - trigger: "docker-example-deploy"
-  #   build:
-  #     message: "Deploy #$BUILDKITE_BUILD_NUMBER"
-  #     env:
-  #       - "DOCKER_TAG_TO_DEPLOY=$BUILDKITE_BUILD_NUMBER"
+    branches:
+      - master
+      - add-deploy-to-docker-pipeline
+    trigger: "${BUILDKITE_PIPELINE_SLUG}-deploy"
+    build:
+      commit: "${BUILDKITE_COMMIT}"
+      branch: master
+      message: ":rocket:"
+      env:
+        BUILD_NUMBER_TO_DEPLOY: "$BUILDKITE_BUILD_NUMBER}"
+    async: true
