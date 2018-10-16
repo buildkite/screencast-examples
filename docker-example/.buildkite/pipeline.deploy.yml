@@ -1,0 +1,5 @@
+steps:
+  - label: ":rocket:"
+    command: "bash -c 'Deployed build $$BUILD_NUMBER_TO_DEPLOY'"
+    concurrency: 1
+    concurrency_group: "docker-example-deploys"
