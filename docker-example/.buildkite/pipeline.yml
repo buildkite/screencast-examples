@@ -1,5 +1,5 @@
 steps:
-  - label: ":docker: :package: (dev)"
+  - label: ":docker: :package: (Dev)"
     plugins:
       - docker-login#v2.0.1:
           username: buildkitedemo
