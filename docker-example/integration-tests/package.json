@@ -3,6 +3,6 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "6.2.1"
+    "mocha": "6.2.2"
   }
 }
