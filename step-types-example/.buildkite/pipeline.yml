@@ -4,25 +4,25 @@ env:
 steps:
   - label: ":docker::package:"
     plugins:
-      - docker-compose#v3.6.0:
+      - docker-compose#v3.7.0:
           build: app
           image-repository: "index.docker.io/buildkitedemo/step-types-demo"
   - wait
   - label: ":rubocop:"
     command: "echo hello world"
     plugins:
-      - docker-compose#v3.6.0:
+      - docker-compose#v3.7.0:
           run: app
   - label: ":percy:"
     command: "echo hello world"
     plugins:
-      - docker-compose#v3.6.0:
+      - docker-compose#v3.7.0:
           run: app
   - label: ":knapsack:"
     command: "echo hello world"
     parallelism: 30
     plugins:
-      - docker-compose#v3.6.0:
+      - docker-compose#v3.7.0:
           run: app
   - wait
   - label: ":codecov:"
