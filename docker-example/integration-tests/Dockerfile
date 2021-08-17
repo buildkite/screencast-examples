@@ -1,4 +1,4 @@
-FROM buildkite/puppeteer:v1.15.0
+FROM buildkite/puppeteer:10.0.0
 WORKDIR /app
 RUN     curl https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /usr/sbin/wait-for-it.sh \
         && chmod +x /usr/sbin/wait-for-it.sh
