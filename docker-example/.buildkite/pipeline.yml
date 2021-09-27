@@ -1,7 +1,7 @@
 steps:
   - label: ":docker: :package: (Dev)"
     plugins:
-      - docker-login#v2.0.2:
+      - docker-login#v2.1.0:
           username: buildkitedemo
       - docker-compose#v3.8.0:
           build: app
@@ -12,7 +12,7 @@ steps:
   - label: ":node: Units"
     command: "npm test"
     plugins:
-      - docker-login#v2.0.2:
+      - docker-login#v2.1.0:
           username: buildkitedemo
       - docker-compose#v3.8.0:
           run: app
@@ -20,7 +20,7 @@ steps:
   - label: ":node: Lint"
     command: "npm run lint"
     plugins:
-      - docker-login#v2.0.2:
+      - docker-login#v2.1.0:
           username: buildkitedemo
       - docker-compose#v3.8.0:
           run: app
@@ -29,7 +29,7 @@ steps:
 
   - label: ":chrome: Integration"
     plugins:
-      - docker-login#v2.0.2:
+      - docker-login#v2.1.0:
           username: buildkitedemo
       - docker-compose#v3.8.0:
           config: integration-tests/docker-compose.yml
@@ -39,7 +39,7 @@ steps:
 
   - label: ":docker: :package: (Prod)"
     plugins:
-      - docker-login#v2.0.2:
+      - docker-login#v2.1.0:
           username: buildkitedemo
       - docker-compose#v3.8.0:
           config: docker-compose.prod.yml
@@ -49,7 +49,7 @@ steps:
 
   - label: ":chrome: Integration (Prod)"
     plugins:
-      - docker-login#v2.0.2:
+      - docker-login#v2.1.0:
           username: buildkitedemo
       - docker-compose#v3.8.0:
           config: integration-tests/docker-compose.prod.yml
