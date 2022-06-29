@@ -3,7 +3,7 @@ steps:
     plugins:
       - docker-login#v2.1.0:
           username: buildkitedemo
-      - docker-compose#v3.9.0:
+      - docker-compose#v3.10.0:
           build: app
           image-repository: "buildkitedemo/docker-demo"
 
@@ -14,7 +14,7 @@ steps:
     plugins:
       - docker-login#v2.1.0:
           username: buildkitedemo
-      - docker-compose#v3.9.0:
+      - docker-compose#v3.10.0:
           run: app
 
   - label: ":node: Lint"
@@ -22,7 +22,7 @@ steps:
     plugins:
       - docker-login#v2.1.0:
           username: buildkitedemo
-      - docker-compose#v3.9.0:
+      - docker-compose#v3.10.0:
           run: app
 
   - wait
@@ -31,7 +31,7 @@ steps:
     plugins:
       - docker-login#v2.1.0:
           username: buildkitedemo
-      - docker-compose#v3.9.0:
+      - docker-compose#v3.10.0:
           config: integration-tests/docker-compose.yml
           run: integration-tests
 
@@ -41,7 +41,7 @@ steps:
     plugins:
       - docker-login#v2.1.0:
           username: buildkitedemo
-      - docker-compose#v3.9.0:
+      - docker-compose#v3.10.0:
           config: docker-compose.prod.yml
           push: app
 
@@ -51,7 +51,7 @@ steps:
     plugins:
       - docker-login#v2.1.0:
           username: buildkitedemo
-      - docker-compose#v3.9.0:
+      - docker-compose#v3.10.0:
           config: integration-tests/docker-compose.prod.yml
           run: integration-tests
 
